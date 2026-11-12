@@ -3,131 +3,562 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>E-Cure Earth | E-Waste Management</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@400;500&display=swap">
+    <title>E-CURE EARTH | Circular Electronics ESG SaaS Platform</title>
+    <!-- Modern Luxury Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome & Leaflet CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Navigation -->
+    <!-- Subtle Ambient Lighting Spheres -->
+    <div class="ambient-glow ambient-1"></div>
+    <div class="ambient-glow ambient-2"></div>
+
+    <!-- Toast Notification Container -->
+    <div id="toast-container" class="toast-container"></div>
+
+    <!-- Floating Luxury Botanical Navbar -->
     <nav>
-        <div class="container">
-            <div class="logo">
-                <img src="logo.png" alt="E-Cure Earth Logo" class="logo-img">
-                E-Cure Earth
-            </div>
-            <div class="nav-links">
-                <a href="#about">About</a>
-                <a href="#mission">Mission</a>
-                <a href="impacts.html">Impacts</a>
-                <a href="marketplace.html">Marketplace</a>
-                <a href="collectors.html">Collectors</a>
-                <a href="auth.html">Login</a>
-                <a href="auth.html?signup=true" class="btn btn-primary">Sign Up</a>
+        <div class="nav-content">
+            <a href="#hero" class="brand-logo">
+                <div class="logo-3d-wrapper">
+                    <div class="logo-ambient-ring"></div>
+                    <img src="logo.png" alt="E-Cure Earth Logo">
+                </div>
+                <span class="logo-text-title">E-Cure<span style="color: var(--color-gold);">.Earth</span></span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#hero" class="active">Home</a></li>
+                <li><a href="#manual">User Manual</a></li>
+                <li><a href="#features">Capabilities</a></li>
+                <li><a href="#calculator">Carbon Calculator</a></li>
+                <li><a href="#marketplace">Marketplace</a></li>
+                <li><a href="#collectors">Collectors Map</a></li>
+                <li><a href="#impacts">Science</a></li>
+            </ul>
+            <div class="nav-actions">
+                <!-- Logged-out state buttons -->
+                <div id="nav-guest-actions" style="display: flex; gap: 8px; align-items: center;">
+                    <a href="auth.html" class="btn btn-secondary" style="padding: 8px 16px; font-size: 0.85rem;"><i class="fas fa-arrow-right-to-bracket"></i> Sign In</a>
+                    <a href="auth.html" class="btn btn-primary" style="padding: 8px 18px; font-size: 0.85rem;"><i class="fas fa-sparkles"></i> Demo Login</a>
+                </div>
+                <!-- Logged-in state button -->
+                <div id="nav-user-actions" style="display: none; align-items: center; gap: 10px;">
+                    <a href="dashboard.html" class="btn btn-primary" style="padding: 8px 16px; font-size: 0.85rem;"><i class="fas fa-gauge"></i> Enter Console</a>
+                    <button id="nav-logout-btn" class="btn btn-forest" style="padding: 8px 14px; font-size: 0.82rem; color: #f87171;"><i class="fas fa-sign-out"></i></button>
+                </div>
+                <button class="mobile-toggle" aria-label="Toggle Navigation"><i class="fas fa-bars"></i></button>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="hero">
+    <!-- SECTION 1: HERO SECTION -->
+    <section id="hero" class="hero-section">
         <div class="container">
-            <div class="hero-content">
-                <h1>Transforming E-Waste into Sustainable Solutions</h1>
-                <p>Join our mission to responsibly recycle electronic waste and protect our environment for future generations.</p>
-                <div class="cta-buttons">
-                    <a href="auth.html?signup=true" class="btn btn-primary">Get Started</a>
-                    <a href="#mission" class="btn btn-secondary">Learn More</a>
+            <div class="hero-grid">
+                <div class="hero-content-col">
+                    <div class="hero-badge-live">
+                        <span class="pulse-dot"></span> Botanical Circular Electronics Architecture
+                    </div>
+                    <h1 class="hero-title">
+                        Regenerative Hardware <br>
+                        <span class="text-gradient-gold">Lifecycle Intelligence</span> & Carbon Accounting
+                    </h1>
+                    <p class="hero-subtitle">
+                        An enterprise SaaS platform bridging high-compliance electronic asset disposition, secondary B2B exchange, and cryptographic Scope 3 carbon telemetry.
+                    </p>
+                    <div class="hero-cta-group">
+                        <a href="auth.html" class="btn btn-primary"><i class="fas fa-key"></i> Launch Interactive Demo</a>
+                        <a href="#manual" class="btn btn-secondary"><i class="fas fa-book-open"></i> Read User Manual</a>
+                        <a href="#calculator" class="btn btn-forest"><i class="fas fa-calculator"></i> Calculate ROI</a>
+                    </div>
+                    <div class="hero-social-proof">
+                        <div class="proof-item">
+                            <span class="proof-number">10,400+</span>
+                            <span class="proof-label">Enterprise Assets Diverted</span>
+                        </div>
+                        <div class="proof-item">
+                            <span class="proof-number">99.8%</span>
+                            <span class="proof-label">Zero-Landfill Ratio</span>
+                        </div>
+                        <div class="proof-item">
+                            <span class="proof-number">R2v3 / ISO</span>
+                            <span class="proof-label">Chain-of-Custody Audited</span>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="hero-image">
-                <img src="hero-image.jpg" alt="Electronic waste being sorted for recycling">
-            </div>
-        </div>
-    </section>
 
-    <!-- About Section -->
-    <section id="about" class="about">
-        <div class="container">
-            <h2>About Us</h2>
-            <p>Founded in 2025, E-Cure Earth is dedicated to tackling the global e-waste crisis. Our team of environmentalists, technologists, and community advocates works tirelessly to bridge the gap between e-waste generators and certified recyclers. We aim to create a sustainable future by promoting responsible disposal and recycling of electronics.</p>
-            <p>Our vision is a world where every electronic device is reused, refurbished, or recycled, reducing the environmental footprint and preserving resources for future generations. Join us in making a difference—one device at a time.</p>
-        </div>
-    </section>
-
-    <!-- Mission Section -->
-    <section id="mission" class="mission">
-        <div class="container">
-            <h2>Our Mission</h2>
-            <p>We bridge the gap between e-waste generators and certified recyclers to ensure responsible disposal of electronics.</p>
-            
-            <div class="mission-stats">
-                <div class="stat-card">
-                    <h3>50+</h3>
-                    <p>Certified Recyclers</p>
-                </div>
-                <div class="stat-card">
-                    <h3>10K+</h3>
-                    <p>Devices Processed</p>
-                </div>
-                <div class="stat-card">
-                    <h3>25K+</h3>
-                    <p>Kg CO₂ Saved</p>
-                </div>
-            </div>
-            
-            <div class="process-steps">
-                <div class="step">
-                    <img src="collection.jpg" alt="Volunteers collecting e-waste from a community drop-off point">
-                    <h3>Collection</h3>
-                    <p>We collect e-waste from homes and businesses</p>
-                </div>
-                <div class="step">
-                    <img src="processing.jpg" alt="Technicians dismantling electronics in a recycling facility">
-                    <h3>Processing</h3>
-                    <p>Safe dismantling and separation of materials</p>
-                </div>
-                <div class="step">
-                    <img src="recycling.jpg" alt="Recycled materials being sorted for reuse in manufacturing">
-                    <h3>Recycling</h3>
-                    <p>Materials are recycled for future use</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="new-footer">
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-section">
-                    <h3>E-Cure Earth</h3>
-                    <p>Committed to sustainable e-waste management since 2025.</p>
-                </div>
-                <div class="footer-section">
-                    <h3>Quick Links</h3>
-                    <ul>
-                        <li><a href="#about">About Us</a></li>
-                        <li><a href="marketplace.html">Marketplace</a></li>
-                        <li><a href="collectors.html">Collectors</a></li>
-                        <li><a href="impacts.html">Impacts</a></li>
-                        <li><a href="#">Contact Us</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h3>Follow Us</h3>
-                    <div class="social-links">
-                        <a href="https://facebook.com" target="_blank" rel="noopener" title="Facebook"><i class="fab fa-facebook-f"></i></a>
-                        <a href="https://twitter.com" target="_blank" rel="noopener" title="Twitter"><i class="fab fa-twitter"></i></a>
-                        <a href="https://instagram.com" target="_blank" rel="noopener" title="Instagram"><i class="fab fa-instagram"></i></a>
+                <!-- Showcase Card -->
+                <div class="hero-card-3d-wrap">
+                    <div class="hero-card-3d">
+                        <div class="hero-card-header">
+                            <div>
+                                <span style="font-size: 0.72rem; color: var(--text-muted); text-transform: uppercase;">Active Pipeline</span>
+                                <h3 style="font-size: 1.2rem;">Enterprise Lot #904 - Verified</h3>
+                            </div>
+                            <span class="hardware-tag"><i class="fas fa-shield-halved"></i> NIST 800-88 Wiped</span>
+                        </div>
+                        <div class="hero-card-image">
+                            <img src="hero-image.jpg" alt="E-waste processing visualization">
+                        </div>
+                        <p style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.55;">
+                            Automated tracking: 2,400 kg of corporate ultrabooks & server blades successfully directed toward clean hydrometallurgy and certified secondary reuse.
+                        </p>
+                        <div class="hero-card-stats">
+                            <div class="mini-stat">
+                                <div class="val">100%</div>
+                                <div class="lbl">Zero Landfill</div>
+                            </div>
+                            <div class="mini-stat">
+                                <div class="val">-6.2t</div>
+                                <div class="lbl">CO₂ Mitigated</div>
+                            </div>
+                            <div class="mini-stat">
+                                <div class="val">Verified</div>
+                                <div class="lbl">ESG Certificate</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="footer-bottom">
-                <p>E-Cure Earth © 2025 | Sustainable E-Waste Solutions</p>
+        </div>
+    </section>
+
+    <!-- SECTION 2: USER MANUAL & WORKFLOW GUIDE (NEW) -->
+    <section id="manual" class="section-wrapper">
+        <div class="container">
+            <div class="section-head-center">
+                <span class="section-tag">Interactive User Manual</span>
+                <h2 class="section-title">How To Deploy & Operate E-Cure Earth</h2>
+                <p class="section-desc">A straightforward 4-phase operating guide for IT administrators, sustainability managers, and fleet handlers.</p>
+            </div>
+
+            <div class="manual-timeline">
+                <div class="manual-step-card">
+                    <div class="step-num-pill">01</div>
+                    <h4>1. Authenticate Node</h4>
+                    <p>Access the platform via the dedicated <a href="auth.html" style="color: var(--color-gold); font-weight: 600;">Auth Portal</a>. Use the 1-Click Demo login or register your corporate domain to unlock your team dashboard.</p>
+                </div>
+
+                <div class="manual-step-card">
+                    <div class="step-num-pill">02</div>
+                    <h4>2. Model Your Carbon ROI</h4>
+                    <p>Use the <a href="#calculator" style="color: var(--color-gold); font-weight: 600;">Carbon Calculator</a> to input your upcoming decommissioned laptops, phones, and servers to forecast carbon offset and salvage cash.</p>
+                </div>
+
+                <div class="manual-step-card">
+                    <div class="step-num-pill">03</div>
+                    <h4>3. Schedule Hub Dispatch</h4>
+                    <p>Select your nearest certified collector from the <a href="#collectors" style="color: var(--color-gold); font-weight: 600;">Collectors Map</a>. Click "Book Intake" to dispatch on-site secure pallet collection.</p>
+                </div>
+
+                <div class="manual-step-card">
+                    <div class="step-num-pill">04</div>
+                    <h4>4. Audit & P2P Liquidation</h4>
+                    <p>Download signed NIST 800-88 cryptographic sanitization certificates, or list functional workstations on the <a href="#marketplace" style="color: var(--color-gold); font-weight: 600;">Secondary Marketplace</a>.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 3: CORE CAPABILITIES -->
+    <section id="features" class="section-wrapper">
+        <div class="container">
+            <div class="section-head-center">
+                <span class="section-tag">Enterprise Ecosystem</span>
+                <h2 class="section-title">Architected for Sustainability & IT Logistics</h2>
+                <p class="section-desc">E-Cure Earth merges audited recycler logistics, authenticated secondary marketplaces, and certified carbon telemetry.</p>
+            </div>
+
+            <div class="features-grid">
+                <div class="glass-panel feature-3d-box">
+                    <div class="feature-icon-wrapper"><i class="fas fa-network-wired"></i></div>
+                    <h3>Geofenced Collector Grid</h3>
+                    <p>Instant dispatch scheduling with audited local R2v3 and e-Stewards drop depots and on-site corporate fleet pickup.</p>
+                </div>
+
+                <div class="glass-panel feature-3d-box">
+                    <div class="feature-icon-wrapper"><i class="fas fa-arrows-rotate"></i></div>
+                    <h3>Circular Secondary Exchange</h3>
+                    <p>Monetize decommissioned IT infrastructure through a certified peer-to-peer exchange for tested corporate workstations.</p>
+                </div>
+
+                <div class="glass-panel feature-3d-box">
+                    <div class="feature-icon-wrapper"><i class="fas fa-file-shield"></i></div>
+                    <h3>Scope 3 ESG Telemetry</h3>
+                    <p>Calculates dynamic greenhouse gas offsets, issuing cryptographically signed certificates for your enterprise disclosures.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 4: INTERACTIVE ESG CARBON CALCULATOR -->
+    <section id="calculator" class="section-wrapper">
+        <div class="container">
+            <div class="section-head-center">
+                <span class="section-tag">Interactive Simulation</span>
+                <h2 class="section-title">Calculate Your Environmental & Financial ROI</h2>
+                <p class="section-desc">Estimate your company's carbon mitigation, diverted toxic weight, and salvageable cash yield in real time.</p>
+            </div>
+
+            <div class="glass-panel calc-container">
+                <div class="calc-inputs-col">
+                    <div class="calc-input-card">
+                        <div class="calc-label-row">
+                            <label><i class="fas fa-laptop" style="color: var(--color-gold);"></i> Laptops & Workstations</label>
+                            <span class="calc-count-val" id="count-laptops-val">25 units</span>
+                        </div>
+                        <input type="range" id="slider-laptops" min="0" max="250" value="25" class="calc-slider">
+                    </div>
+
+                    <div class="calc-input-card">
+                        <div class="calc-label-row">
+                            <label><i class="fas fa-mobile-screen-button" style="color: var(--color-gold);"></i> Mobile Devices & Tablets</label>
+                            <span class="calc-count-val" id="count-phones-val">50 units</span>
+                        </div>
+                        <input type="range" id="slider-phones" min="0" max="500" value="50" class="calc-slider">
+                    </div>
+
+                    <div class="calc-input-card">
+                        <div class="calc-label-row">
+                            <label><i class="fas fa-server" style="color: var(--color-gold);"></i> Servers & Enterprise Monitors</label>
+                            <span class="calc-count-val" id="count-servers-val">10 units</span>
+                        </div>
+                        <input type="range" id="slider-servers" min="0" max="100" value="10" class="calc-slider">
+                    </div>
+                </div>
+
+                <div class="calc-results-col">
+                    <h3 style="font-size: 1.25rem; margin-bottom: 20px; color: var(--color-ivory);"><i class="fas fa-chart-pie" style="color: var(--color-gold);"></i> Environmental & Cash Yield</h3>
+                    <div class="calc-stat-box">
+                        <span class="stat-lbl">Estimated CO₂ Avoided</span>
+                        <span class="stat-num text-gradient-gold" id="res-co2">1,125 kg</span>
+                    </div>
+                    <div class="calc-stat-box">
+                        <span class="stat-lbl">Total E-Waste Diverted</span>
+                        <span class="stat-num text-gold" id="res-weight">235.0 kg</span>
+                    </div>
+                    <div class="calc-stat-box">
+                        <span class="stat-lbl">Estimated Hardware Salvage Value</span>
+                        <span class="stat-num text-gold" id="res-cash">$14,250 USD</span>
+                    </div>
+                    <a href="auth.html" class="btn btn-primary" style="width: 100%; margin-top: 10px;">
+                        <i class="fas fa-arrow-right"></i> Open Telemetry Console
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 5: SECONDARY HARDWARE MARKETPLACE -->
+    <section id="marketplace" class="section-wrapper">
+        <div class="container">
+            <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 40px; flex-wrap: wrap; gap: 20px;">
+                <div>
+                    <span class="section-tag">Secondary Life Exchange</span>
+                    <h2 class="section-title" style="margin-bottom: 6px;">Certified Enterprise Hardware Exchange</h2>
+                    <p class="section-desc">Certified tested computing assets ready for secondary deployment with full diagnostic transparency.</p>
+                </div>
+                <button class="btn btn-primary" id="btn-open-list-modal"><i class="fas fa-plus"></i> List Fleet Device</button>
+            </div>
+
+            <!-- Filter Categories Row -->
+            <div class="market-filter-row">
+                <button class="market-pill-btn active" data-filter="all">All Inventory</button>
+                <button class="market-pill-btn" data-filter="laptop">Laptops</button>
+                <button class="market-pill-btn" data-filter="phone">Smartphones</button>
+                <button class="market-pill-btn" data-filter="monitor">Displays</button>
+                <button class="market-pill-btn" data-filter="tablet">Tablets</button>
+            </div>
+
+            <div class="marketplace-grid" id="market-cards-container">
+                <!-- Item 1 -->
+                <div class="glass-panel market-item-card" data-category="laptop">
+                    <div class="market-thumb">
+                        <img src="laptop.jpeg" alt="Enterprise Laptop">
+                        <span class="market-price-tag">$250</span>
+                    </div>
+                    <div class="market-body">
+                        <h4>Dell Latitude 7400 Series</h4>
+                        <p>Core i5 8th Gen, 16GB DDR4, 256GB NVMe SSD. Passed full NIST 800-88 data sanitization.</p>
+                        <div class="market-meta">
+                            <span><i class="fas fa-location-dot"></i> North Metro Hub</span>
+                            <span><i class="fas fa-battery-full"></i> 94% Health</span>
+                        </div>
+                        <button class="btn btn-primary buy-item-btn" data-name="Dell Latitude 7400 Series" data-price="250" style="width: 100%;"><i class="fas fa-handshake"></i> Acquire Unit</button>
+                    </div>
+                </div>
+
+                <!-- Item 2 -->
+                <div class="glass-panel market-item-card" data-category="phone">
+                    <div class="market-thumb">
+                        <img src="smartphone.jpeg" alt="Enterprise Smartphone">
+                        <span class="market-price-tag">$140</span>
+                    </div>
+                    <div class="market-body">
+                        <h4>Samsung Galaxy S-Fleet Model</h4>
+                        <p>Enterprise decommissioned smartphone. Clean IMEI, verified screen & camera diagnostic report.</p>
+                        <div class="market-meta">
+                            <span><i class="fas fa-location-dot"></i> South Metro Hub</span>
+                            <span><i class="fas fa-shield-check"></i> Wiped</span>
+                        </div>
+                        <button class="btn btn-primary buy-item-btn" data-name="Samsung Galaxy S-Fleet Model" data-price="140" style="width: 100%;"><i class="fas fa-handshake"></i> Acquire Unit</button>
+                    </div>
+                </div>
+
+                <!-- Item 3 -->
+                <div class="glass-panel market-item-card" data-category="monitor">
+                    <div class="market-thumb">
+                        <img src="monitor.jpeg" alt="Dell UltraSharp Display">
+                        <span class="market-price-tag">$95</span>
+                    </div>
+                    <div class="market-body">
+                        <h4>Dell UltraSharp 24" IPS</h4>
+                        <p>Full HD bezel-less monitor with adjustable stand, DisplayPort + HDMI hub. Grade A condition.</p>
+                        <div class="market-meta">
+                            <span><i class="fas fa-location-dot"></i> East Tech Hub</span>
+                            <span><i class="fas fa-display"></i> Pristine</span>
+                        </div>
+                        <button class="btn btn-primary buy-item-btn" data-name="Dell UltraSharp 24 IPS" data-price="95" style="width: 100%;"><i class="fas fa-handshake"></i> Acquire Unit</button>
+                    </div>
+                </div>
+
+                <!-- Item 4 -->
+                <div class="glass-panel market-item-card" data-category="tablet">
+                    <div class="market-thumb">
+                        <img src="tablet.jpeg" alt="Enterprise iPad">
+                        <span class="market-price-tag">$180</span>
+                    </div>
+                    <div class="market-body">
+                        <h4>iPad 9th Gen 64GB Gray</h4>
+                        <p>Factory unlocked tablet with tempered glass and durable casing. Diagnostic score 98/100.</p>
+                        <div class="market-meta">
+                            <span><i class="fas fa-location-dot"></i> West Tech Hub</span>
+                            <span><i class="fas fa-bolt"></i> 100% Functional</span>
+                        </div>
+                        <button class="btn btn-primary buy-item-btn" data-name="iPad 9th Gen 64GB" data-price="180" style="width: 100%;"><i class="fas fa-handshake"></i> Acquire Unit</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 6: CERTIFIED COLLECTORS & GENERAL OPENSTREETMAP API -->
+    <section id="collectors" class="section-wrapper">
+        <div class="container">
+            <div class="section-head-center">
+                <span class="section-tag">Verified Infrastructure</span>
+                <h2 class="section-title">Certified Regional Collection Network</h2>
+                <p class="section-desc">Interactive live mapping powered by global OpenStreetMap API with audited R2v3 depots.</p>
+            </div>
+
+            <div class="collectors-wrapper">
+                <div class="collector-list-scroll">
+                    <div class="collector-item-box">
+                        <div class="collector-item-info">
+                            <h4>EcoTech Metallurgy & Recycling Hub</h4>
+                            <p><i class="fas fa-location-dot" style="color: var(--color-gold);"></i> 104 Industrial Parkway, North Tech District</p>
+                            <div class="badge-chain">
+                                <span>R2v3 Certified</span>
+                                <span>Fleet Pickup</span>
+                                <span>DoD Shredding</span>
+                            </div>
+                        </div>
+                        <button class="btn btn-secondary book-intake-btn" data-hub="EcoTech Metallurgy" style="padding: 8px 16px; font-size: 0.85rem;"><i class="fas fa-calendar-check"></i> Book Intake</button>
+                    </div>
+
+                    <div class="collector-item-box">
+                        <div class="collector-item-info">
+                            <h4>GreenCycle Precious Metal Extraction</h4>
+                            <p><i class="fas fa-location-dot" style="color: var(--color-gold);"></i> 520 Circular Boulevard, Central Metro Hub</p>
+                            <div class="badge-chain">
+                                <span>ISO 14001</span>
+                                <span>Clean Metallurgy</span>
+                                <span>Heavy Tech</span>
+                            </div>
+                        </div>
+                        <button class="btn btn-secondary book-intake-btn" data-hub="GreenCycle Extraction" style="padding: 8px 16px; font-size: 0.85rem;"><i class="fas fa-calendar-check"></i> Book Intake</button>
+                    </div>
+
+                    <div class="collector-item-box">
+                        <div class="collector-item-info">
+                            <h4>Urban Miners Zero-Waste Depot</h4>
+                            <p><i class="fas fa-location-dot" style="color: var(--color-gold);"></i> 89 Eco Commerce Way, South Zone</p>
+                            <div class="badge-chain">
+                                <span>e-Stewards</span>
+                                <span>24/7 Smart Lockbox</span>
+                                <span>Zero Landfill</span>
+                            </div>
+                        </div>
+                        <button class="btn btn-secondary book-intake-btn" data-hub="Urban Miners Zero-Waste" style="padding: 8px 16px; font-size: 0.85rem;"><i class="fas fa-calendar-check"></i> Book Intake</button>
+                    </div>
+                </div>
+
+                <!-- Leaflet Live Map -->
+                <div id="map-embedded"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 7: SCIENTIFIC IMPACTS & TOXICOLOGY -->
+    <section id="impacts" class="section-wrapper">
+        <div class="container">
+            <div class="section-head-center">
+                <span class="section-tag">Biosphere Toxicology</span>
+                <h2 class="section-title">The Real Environmental Cost of E-Waste</h2>
+                <p class="section-desc">Over 53.6 million metric tons of electronics are discarded annually. Understanding toxic vectors drives enterprise action.</p>
+            </div>
+
+            <div class="impacts-grid">
+                <div class="glass-panel impact-card-3d">
+                    <div class="impact-card-image">
+                        <img src="toxic-substances.jpeg" alt="Toxic substances">
+                    </div>
+                    <h4>Heavy Metal Soil Infiltration</h4>
+                    <p>Lead, cadmium, and mercury leak into agricultural soil layers, poisoning ecosystems and lingering for centuries without degradation.</p>
+                </div>
+
+                <div class="glass-panel impact-card-3d">
+                    <div class="impact-card-image">
+                        <img src="air-pollution.jpeg" alt="Air pollution">
+                    </div>
+                    <h4>Atmospheric Dioxin Plumes</h4>
+                    <p>Crude open-air burning of circuit boards releases carcinogenic dioxins, furans, and toxic particulate clouds into the atmosphere.</p>
+                </div>
+
+                <div class="glass-panel impact-card-3d">
+                    <div class="impact-card-image">
+                        <img src="water-contamination.jpg" alt="Water contamination">
+                    </div>
+                    <h4>Groundwater Leaching</h4>
+                    <p>Lithium battery corrosion contaminates urban water reservoirs, destroying delicate aquatic microbiology and drinking supplies.</p>
+                </div>
+
+                <div class="glass-panel impact-card-3d">
+                    <div class="impact-card-image">
+                        <img src="neurological-damage.jpg" alt="Neurological damage">
+                    </div>
+                    <h4>Neurological Toxicity</h4>
+                    <p>Chronic lead bioaccumulation directly impairs human neurological functions, causing irreversible cognitive damage in vulnerable populations.</p>
+                </div>
+
+                <div class="glass-panel impact-card-3d">
+                    <div class="impact-card-image">
+                        <img src="respiratory-problems.jpeg" alt="Respiratory damage">
+                    </div>
+                    <h4>Pulmonary Complications</h4>
+                    <p>Beryllium and cadmium dust inhalation triggers permanent fibrotic lung injuries and chronic respiratory tract failure.</p>
+                </div>
+
+                <div class="glass-panel impact-card-3d">
+                    <div class="impact-card-image">
+                        <img src="dna-damage.jpg" alt="DNA cellular damage">
+                    </div>
+                    <h4>Chromosomal Mutagenesis</h4>
+                    <p>Toxic reactive oxygen species break DNA strands, accelerating oncological risks and long-term biological mutations.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MODAL: ADD MARKETPLACE LISTING -->
+    <div id="modal-new-listing" class="modal-overlay">
+        <div class="modal-card">
+            <div class="modal-head">
+                <h3><i class="fas fa-boxes-stacked" style="color: var(--color-gold);"></i> List Fleet Device</h3>
+                <span class="modal-close" id="modal-close-btn">&times;</span>
+            </div>
+            <form id="form-modal-new-listing">
+                <div class="glass-input-group">
+                    <label>Hardware Model / Equipment Title</label>
+                    <input type="text" id="modal-item-title" placeholder="e.g. Lenovo ThinkPad T14 Gen 2" required class="modal-input">
+                </div>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
+                    <div class="glass-input-group">
+                        <label>Price ($ USD)</label>
+                        <input type="number" id="modal-item-price" placeholder="320" required class="modal-input">
+                    </div>
+                    <div class="glass-input-group">
+                        <label>Category</label>
+                        <select id="modal-item-category" class="modal-input" required>
+                            <option value="laptop">Laptop / Workstation</option>
+                            <option value="phone">Smartphone</option>
+                            <option value="monitor">Display / Monitor</option>
+                            <option value="tablet">Tablet</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="glass-input-group">
+                    <label>Diagnostic Condition & Sanitization Notes</label>
+                    <textarea id="modal-item-desc" rows="3" placeholder="Condition details, NIST wiping status, battery health..." required class="modal-input"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%;"><i class="fas fa-cloud-arrow-up"></i> Publish Listing to Exchange</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-main-grid">
+                <div class="footer-col">
+                    <a href="#hero" class="brand-logo" style="margin-bottom: 14px;">
+                        <img src="logo.png" alt="E-Cure Earth Logo">
+                        <span>E-Cure<span style="color: var(--color-gold);">.Earth</span></span>
+                    </a>
+                    <p style="font-size: 0.88rem; color: var(--text-secondary); max-width: 300px; line-height: 1.6;">
+                        Cloud-native platform powering verified electronics disposition, secondary hardware marketplace trading, and Scope 3 ESG carbon accounting.
+                    </p>
+                    <div class="social-pill-row">
+                        <a href="https://twitter.com" target="_blank" rel="noopener" class="social-pill" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="https://linkedin.com" target="_blank" rel="noopener" class="social-pill" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://github.com" target="_blank" rel="noopener" class="social-pill" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h5>Architecture</h5>
+                    <ul>
+                        <li><a href="#hero">Platform Overview</a></li>
+                        <li><a href="#manual">User Manual</a></li>
+                        <li><a href="#features">Capabilities</a></li>
+                        <li><a href="#calculator">ROI Calculator</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h5>Ecosystem</h5>
+                    <ul>
+                        <li><a href="#marketplace">P2P Exchange</a></li>
+                        <li><a href="#collectors">Collectors Map</a></li>
+                        <li><a href="#impacts">Toxicology Science</a></li>
+                        <li><a href="auth.html">Auth Portal</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h5>Compliance</h5>
+                    <ul>
+                        <li><a href="#">R2v3 Standard</a></li>
+                        <li><a href="#">e-Stewards Audited</a></li>
+                        <li><a href="#">NIST 800-88 Sanitization</a></li>
+                        <li><a href="#">ISO 14001 Protocol</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-sub">
+                <p>© 2026 E-Cure Earth Inc. Deployable Circular Electronics SaaS Platform. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
+    <!-- Leaflet Script (General OpenStreetMap) -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
     <script src="script.js"></script>
 </body>
 </html>

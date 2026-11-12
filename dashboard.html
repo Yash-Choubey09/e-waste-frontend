@@ -3,139 +3,249 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard | E-Cure Earth</title>
+    <title>Enterprise ESG & Telemetry Dashboard | E-Cure Earth</title>
+    <!-- Modern Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-    <div class="dashboard-wrapper">
-        <div class="dashboard-container">
-            <!-- Sidebar -->
-            <div class="sidebar">
-                <div class="sidebar-header">
-                    <div class="logo">
-                        <img src="logo.png" alt="E-Cure Earth Logo" class="logo-img">
-                        E-Cure Earth
-                    </div>
-                    <div class="user-profile">
-                        <div class="avatar">
-                            <i class="fas fa-user"></i>
-                        </div>
-                        <div class="user-info">
-                            <h4 id="username">User</h4>
-                            <p>Member</p>
-                        </div>
-                    </div>
-                </div>
-                <nav class="sidebar-nav">
-                    <ul>
-                        <li class="active"><a href="#"><i class="fas fa-home"></i> Dashboard</a></li>
-                        <li><a href="marketplace.html"><i class="fas fa-exchange-alt"></i> Marketplace</a></li>
-                        <li><a href="collectors.html"><i class="fas fa-map-marker-alt"></i> Find Collectors</a></li>
-                        <li><a href="#"><i class="fas fa-history"></i> Recycling History</a></li>
-                        <li><a href="#"><i class="fas fa-cog"></i> Settings</a></li>
-                        <li><a href="#" id="logout-btn"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
-                    </ul>
-                </nav>
-            </div>
+    <!-- Toast Notification Container -->
+    <div id="toast-container" class="toast-container"></div>
 
-            <!-- Main Content -->
-            <div class="main-content">
-                <div class="dashboard-header">
-                    <h1>Welcome Back, <span id="user-greeting">User</span>!</h1>
-                    <div class="header-actions">
-                        <button class="btn btn-primary" id="add-device-btn"><i class="fas fa-plus"></i> Add Device</button>
+    <div class="dash-layout-container">
+        <!-- Modern Luxury Sidebar -->
+        <aside class="dash-sidebar">
+            <div class="dash-sidebar-header">
+                <a href="index.html" class="brand-logo" style="margin-bottom: 20px;">
+                    <div class="logo-3d-wrapper">
+                        <div class="logo-ambient-ring"></div>
+                        <img src="logo.png" alt="E-Cure Earth Logo">
                     </div>
-                </div>
-
-                <!-- Stats Cards -->
-                <div class="stats-cards">
-                    <div class="stat-card">
-                        <div class="stat-icon">
-                            <i class="fas fa-mobile-alt"></i>
-                        </div>
-                        <div class="stat-info">
-                            <h3>Devices Recycled</h3>
-                            <p id="devices-count">0</p>
-                        </div>
+                    <span class="logo-text-title">E-Cure<span style="color: var(--color-gold);">.Earth</span></span>
+                </a>
+                <div class="dash-sidebar-user">
+                    <div class="dash-user-avatar">
+                        <i class="fas fa-building"></i>
                     </div>
-                    <div class="stat-card">
-                        <div class="stat-icon">
-                            <i class="fas fa-weight-hanging"></i>
-                        </div>
-                        <div class="stat-info">
-                            <h3>Total Weight</h3>
-                            <p id="weight-count">0 kg</p>
-                        </div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-icon">
-                            <i class="fas fa-leaf"></i>
-                        </div>
-                        <div class="stat-info">
-                            <h3>CO₂ Saved</h3>
-                            <p id="co2-count">0 kg</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Quick Actions -->
-                <div class="quick-actions">
-                    <h2>Quick Actions</h2>
-                    <div class="action-buttons">
-                        <a href="collectors.html" class="action-btn">
-                            <i class="fas fa-calendar-alt"></i>
-                            <span>Schedule Pickup</span>
-                        </a>
-                        <a href="marketplace.html" class="action-btn">
-                            <i class="fas fa-exchange-alt"></i>
-                            <span>Sell Device</span>
-                        </a>
-                        <a href="impacts.html" class="action-btn">
-                            <i class="fas fa-question-circle"></i>
-                            <span>Learn Impacts</span>
-                        </a>
+                    <div>
+                        <h4 id="dash-org-name" style="font-size: 0.95rem; color: var(--color-ivory);">Acme Global Tech</h4>
+                        <span style="font-size: 0.75rem; color: var(--color-gold);"><i class="fas fa-circle-check"></i> Tier 1 Verified</span>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <!-- Footer -->
-        <footer class="new-footer">
-            <div class="container">
-                <div class="footer-grid">
-                    <div class="footer-section">
-                        <h3>E-Cure Earth</h3>
-                        <p>Committed to sustainable e-waste management since 2020.</p>
-                    </div>
-                    <div class="footer-section">
-                        <h3>Quick Links</h3>
-                        <ul>
-                            <li><a href="index.html#about">About Us</a></li>
-                            <li><a href="marketplace.html">Marketplace</a></li>
-                            <li><a href="collectors.html">Collectors</a></li>
-                            <li><a href="impacts.html">Impacts</a></li>
-                            <li><a href="#">Contact Us</a></li>
-                            <li><a href="#">Privacy Policy</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer-section">
-                        <h3>Follow Us</h3>
-                        <div class="social-links">
-                            <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                            <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
-                            <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
-                        </div>
-                    </div>
+            <nav class="dash-sidebar-nav">
+                <ul>
+                    <li class="active"><a href="#"><i class="fas fa-chart-pie"></i> ESG Telemetry</a></li>
+                    <li><a href="index.html#marketplace"><i class="fas fa-boxes-stacked"></i> Secondary Exchange</a></li>
+                    <li><a href="index.html#collectors"><i class="fas fa-route"></i> Collector Network</a></li>
+                    <li><a href="index.html#calculator"><i class="fas fa-calculator"></i> Carbon Calculator</a></li>
+                    <li><a href="index.html#manual"><i class="fas fa-book-open"></i> User Manual</a></li>
+                    <li><a href="index.html"><i class="fas fa-globe"></i> Return to Main Site</a></li>
+                    <li style="margin-top: auto; padding-top: 30px;">
+                        <a href="#" id="dash-logout-btn" style="color: #f87171;"><i class="fas fa-arrow-right-from-bracket"></i> Sign Out</a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Dashboard Workspace -->
+        <main class="dash-main-area">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 32px; flex-wrap: wrap; gap: 16px;">
+                <div>
+                    <span class="section-tag">Enterprise Command Center</span>
+                    <h1 style="font-size: 2.2rem; margin-top: 4px;">Welcome Back, <span id="dash-greeting-name" class="text-gold">Director</span></h1>
+                    <p style="color: var(--text-secondary); font-size: 0.95rem;">Live hardware disposition logs, Scope 3 telemetry, and verified chain-of-custody.</p>
                 </div>
-                <div class="footer-bottom">
-                    <p>E-Cure Earth © 2025 | Sustainable E-Waste Solutions</p>
+                <div style="display: flex; gap: 10px;">
+                    <button class="btn btn-secondary" id="dash-btn-cert"><i class="fas fa-file-pdf"></i> Download ESG Manifest</button>
+                    <button class="btn btn-primary" id="dash-btn-add-asset"><i class="fas fa-plus"></i> Register Disposed Lot</button>
                 </div>
             </div>
-        </footer>
+
+            <!-- KPI Cards Grid -->
+            <div class="dash-stats-grid">
+                <div class="dash-kpi-card">
+                    <div class="kpi-icon"><i class="fas fa-microchip"></i></div>
+                    <h4>Total Assets Logged</h4>
+                    <div class="kpi-value" id="kpi-assets">167</div>
+                    <div class="kpi-trend"><i class="fas fa-arrow-trend-up"></i> +25 units this week</div>
+                </div>
+
+                <div class="dash-kpi-card">
+                    <div class="kpi-icon"><i class="fas fa-weight-hanging"></i></div>
+                    <h4>E-Waste Mass Diverted</h4>
+                    <div class="kpi-value" id="kpi-weight">417.8 kg</div>
+                    <div class="kpi-trend"><i class="fas fa-check"></i> 100% Zero-Landfill</div>
+                </div>
+
+                <div class="dash-kpi-card">
+                    <div class="kpi-icon"><i class="fas fa-seedling"></i></div>
+                    <h4>Scope 3 CO₂ Offset</h4>
+                    <div class="kpi-value" id="kpi-co2">1,044.5 kg</div>
+                    <div class="kpi-trend"><i class="fas fa-certificate"></i> Audit Sealed</div>
+                </div>
+
+                <div class="dash-kpi-card">
+                    <div class="kpi-icon"><i class="fas fa-coins"></i></div>
+                    <h4>Salvaged Net Value</h4>
+                    <div class="kpi-value" id="kpi-val">$28,700</div>
+                    <div class="kpi-trend"><i class="fas fa-arrow-up"></i> Recovered Cash</div>
+                </div>
+            </div>
+
+            <!-- Recent Disposition Activity Manifest -->
+            <div class="glass-panel" style="padding: 28px; margin-bottom: 30px;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+                    <h3 style="font-size: 1.2rem; color: var(--color-ivory);"><i class="fas fa-clock-rotate-left" style="color: var(--color-gold);"></i> Verified Chain-of-Custody Manifests</h3>
+                    <span style="font-size: 0.8rem; color: var(--color-gold);"><i class="fas fa-shield-halved"></i> NIST 800-88 Compliant</span>
+                </div>
+
+                <table class="dash-activity-table">
+                    <thead>
+                        <tr>
+                            <th>Batch ID</th>
+                            <th>Equipment Disposed</th>
+                            <th>Designated Recycler</th>
+                            <th>Mass (kg)</th>
+                            <th>Sanitization Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="dash-manifest-tbody">
+                        <tr>
+                            <td><strong>#LOT-8924</strong></td>
+                            <td>45x Dell Latitude 7400 Laptops</td>
+                            <td>EcoTech Metallurgy Hub</td>
+                            <td>112.5 kg</td>
+                            <td><span style="color: var(--color-gold); font-size: 0.82rem; font-weight: 600;"><i class="fas fa-check-circle"></i> Certified Cryptowipe</span></td>
+                            <td><button class="btn btn-secondary" style="padding: 4px 10px; font-size: 0.75rem;" onclick="showToast('Downloading NIST Manifest for LOT-8924...')">PDF</button></td>
+                        </tr>
+                        <tr>
+                            <td><strong>#LOT-8925</strong></td>
+                            <td>60x Samsung Galaxy S Fleet Handsets</td>
+                            <td>GreenCycle Processing Center</td>
+                            <td>12.0 kg</td>
+                            <td><span style="color: var(--color-gold); font-size: 0.82rem; font-weight: 600;"><i class="fas fa-check-circle"></i> Certified Cryptowipe</span></td>
+                            <td><button class="btn btn-secondary" style="padding: 4px 10px; font-size: 0.75rem;" onclick="showToast('Downloading NIST Manifest for LOT-8925...')">PDF</button></td>
+                        </tr>
+                        <tr>
+                            <td><strong>#LOT-8926</strong></td>
+                            <td>18x Dell UltraSharp 24" IPS Displays</td>
+                            <td>Urban Miners Zero-Waste Depot</td>
+                            <td>81.0 kg</td>
+                            <td><span style="color: var(--color-gold); font-size: 0.82rem; font-weight: 600;"><i class="fas fa-check-circle"></i> Secondary Tested</span></td>
+                            <td><button class="btn btn-secondary" style="padding: 4px 10px; font-size: 0.75rem;" onclick="showToast('Downloading NIST Manifest for LOT-8926...')">PDF</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Quick Action Cards Row -->
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;">
+                <div class="glass-panel" style="padding: 22px;">
+                    <i class="fas fa-truck-pickup" style="font-size: 1.8rem; color: var(--color-gold); margin-bottom: 12px;"></i>
+                    <h4 style="font-size: 1.1rem; margin-bottom: 6px;">Schedule Fleet Intake</h4>
+                    <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 16px;">Request direct pallet collection from your corporate data centers.</p>
+                    <a href="index.html#collectors" class="btn btn-forest" style="width: 100%; font-size: 0.82rem;">Dispatch Recycler</a>
+                </div>
+
+                <div class="glass-panel" style="padding: 22px;">
+                    <i class="fas fa-cart-shopping" style="font-size: 1.8rem; color: var(--color-gold); margin-bottom: 12px;"></i>
+                    <h4 style="font-size: 1.1rem; margin-bottom: 6px;">List Hardware on Exchange</h4>
+                    <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 16px;">Directly liquidate tested company computers to peer organizations.</p>
+                    <a href="index.html#marketplace" class="btn btn-forest" style="width: 100%; font-size: 0.82rem;">Create Listing</a>
+                </div>
+
+                <div class="glass-panel" style="padding: 22px;">
+                    <i class="fas fa-book-open" style="font-size: 1.8rem; color: var(--color-gold); margin-bottom: 12px;"></i>
+                    <h4 style="font-size: 1.1rem; margin-bottom: 6px;">User Manual & Guide</h4>
+                    <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 16px;">Step-by-step instructions for team members and fleet operators.</p>
+                    <a href="index.html#manual" class="btn btn-forest" style="width: 100%; font-size: 0.82rem;">Read Manual</a>
+                </div>
+            </div>
+        </main>
     </div>
 
-    <script src="script.js"></script>
+    <script>
+        function showToast(message, type = 'success') {
+            const container = document.getElementById('toast-container');
+            if (!container) return;
+            const toast = document.createElement('div');
+            toast.className = `toast toast-${type}`;
+            toast.innerHTML = `<i class="fas fa-circle-check"></i> <span>${message}</span>`;
+            container.appendChild(toast);
+            setTimeout(() => toast.remove(), 3500);
+        }
+
+        // Check authentication state
+        const session = JSON.parse(localStorage.getItem('userSession'));
+        if (!session || !session.loggedIn) {
+            // Demo default fallback if user browses directly
+            localStorage.setItem('userSession', JSON.stringify({
+                name: 'Acme Global Technologies',
+                email: 'demo@ecure.earth',
+                role: 'Sustainability Director',
+                loggedIn: true
+            }));
+        }
+
+        const activeSession = JSON.parse(localStorage.getItem('userSession'));
+        if (activeSession) {
+            document.getElementById('dash-org-name').textContent = activeSession.name;
+            document.getElementById('dash-greeting-name').textContent = activeSession.name.split(' ')[0];
+        }
+
+        // Add lot simulator
+        let kpiAssets = 167;
+        let kpiWeight = 417.8;
+        let kpiCo2 = 1044.5;
+        let kpiVal = 28700;
+
+        document.getElementById('dash-btn-add-asset').addEventListener('click', () => {
+            kpiAssets += 15;
+            kpiWeight += 37.5;
+            kpiCo2 += 93.7;
+            kpiVal += 2150;
+
+            document.getElementById('kpi-assets').textContent = kpiAssets;
+            document.getElementById('kpi-weight').textContent = kpiWeight.toFixed(1) + ' kg';
+            document.getElementById('kpi-co2').textContent = kpiCo2.toFixed(1) + ' kg';
+            document.getElementById('kpi-val').textContent = '$' + kpiVal.toLocaleString();
+
+            const tbody = document.getElementById('dash-manifest-tbody');
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td><strong>#LOT-${Math.floor(Math.random()*800 + 9000)}</strong></td>
+                <td>15x Mixed Enterprise Workstations</td>
+                <td>EcoTech Metallurgy Hub</td>
+                <td>37.5 kg</td>
+                <td><span style="color: var(--color-gold); font-size: 0.82rem; font-weight: 600;"><i class="fas fa-check-circle"></i> Certified Cryptowipe</span></td>
+                <td><button class="btn btn-secondary" style="padding: 4px 10px; font-size: 0.75rem;" onclick="showToast('Manifest generated!')">PDF</button></td>
+            `;
+            tbody.prepend(row);
+
+            showToast('Disposed lot registered! Chain of custody updated.', 'success');
+        });
+
+        document.getElementById('dash-btn-cert').addEventListener('click', () => {
+            showToast('Compiling comprehensive Scope 3 GHG Audit Manifest...', 'info');
+            setTimeout(() => {
+                showToast(`ESG Certificate #${Math.floor(Math.random()*90000+10000)} verified and ready for download.`, 'success');
+            }, 1000);
+        });
+
+        document.getElementById('dash-logout-btn').addEventListener('click', (e) => {
+            e.preventDefault();
+            localStorage.removeItem('userSession');
+            showToast('Signed out of executive console.', 'info');
+            setTimeout(() => {
+                window.location.href = 'index.html';
+            }, 600);
+        });
+    </script>
 </body>
 </html>

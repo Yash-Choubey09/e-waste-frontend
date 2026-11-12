@@ -3,178 +3,179 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login | E-Cure Earth</title>
+    <title>Enterprise Access Portal | E-Cure Earth</title>
+    <!-- Modern Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
-<body class="auth-page">
-    <div class="auth-container">
-        <div class="auth-header">
-            <a href="index.html" class="back-home"><i class="fas fa-arrow-left"></i> Back to Home</a>
-            <div class="logo">
-                <img src="logo.png" alt="E-Cure Earth Logo" class="logo-img">
-                E-Cure Earth
+<body class="auth-page-wrapper">
+    <!-- Toast Notification Container -->
+    <div id="toast-container" class="toast-container"></div>
+
+    <div class="auth-card-luxury">
+        <a href="index.html" class="auth-nav-back">
+            <i class="fas fa-arrow-left"></i> Return to Main Platform
+        </a>
+
+        <div style="text-align: center; margin-bottom: 24px;">
+            <div style="display: flex; align-items: center; justify-content: center; gap: 12px; margin-bottom: 12px;">
+                <div class="logo-3d-wrapper">
+                    <div class="logo-ambient-ring"></div>
+                    <img src="logo.png" alt="E-Cure Earth Logo">
+                </div>
+                <span class="logo-text-title" style="font-family: var(--font-heading); font-size: 1.4rem; font-weight: 700; color: var(--color-ivory);">
+                    E-Cure<span style="color: var(--color-gold);">.Earth</span>
+                </span>
             </div>
+            <p style="font-size: 0.88rem; color: var(--text-secondary);">Enterprise Circular Lifecycle & ESG Console</p>
         </div>
 
-        <div class="auth-wrapper">
-            <div class="auth-toggle">
-                <button id="showSigninBtn" class="toggle-btn active">Sign In</button>
-                <button id="showSignupBtn" class="toggle-btn">Sign Up</button>
+        <div class="auth-tabs-toggle">
+            <button class="auth-tab-btn active" id="btn-tab-signin">Sign In</button>
+            <button class="auth-tab-btn" id="btn-tab-signup">Register Org</button>
+        </div>
+
+        <!-- SIGN IN FORM -->
+        <form id="standalone-login-form">
+            <div class="glass-input-group">
+                <label for="auth-email">Corporate Work Email</label>
+                <div class="glass-input-wrap">
+                    <i class="fas fa-envelope"></i>
+                    <input type="email" id="auth-email" placeholder="sustainability@company.com" required>
+                </div>
             </div>
 
-            <!-- Sign In Form -->
-            <div class="form-container sign-in-container" id="signin-form">
-                <form id="loginForm">
-                    <h1>Sign In</h1>
-                    <div class="form-group">
-                        <div class="input-wrapper">
-                            <i class="fas fa-envelope input-icon"></i>
-                            <input type="email" id="loginEmail" placeholder="Email" required>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="input-wrapper">
-                            <i class="fas fa-lock input-icon"></i>
-                            <input type="password" id="loginPassword" placeholder="Password" required>
-                            <i class="fas fa-eye toggle-password" id="toggleLoginPassword"></i>
-                        </div>
-                        <a href="#" class="forgot-password">Forgot password?</a>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Sign In</button>
-                </form>
+            <div class="glass-input-group">
+                <label for="auth-password">Security Password</label>
+                <div class="glass-input-wrap">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" id="auth-password" placeholder="••••••••••••" required>
+                </div>
             </div>
 
-            <!-- Sign Up Form -->
-            <div class="form-container sign-up-container" id="signup-form" style="display:none;">
-                <form id="signupForm">
-                    <h1>Create Account</h1>
-                    <div class="form-group">
-                        <div class="input-wrapper">
-                            <i class="fas fa-user input-icon"></i>
-                            <input type="text" id="signupName" placeholder="Full Name" required>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="input-wrapper">
-                            <i class="fas fa-envelope input-icon"></i>
-                            <input type="email" id="signupEmail" placeholder="Email" required>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="input-wrapper">
-                            <i class="fas fa-lock input-icon"></i>
-                            <input type="password" id="signupPassword" placeholder="Password" required>
-                            <i class="fas fa-eye toggle-password" id="toggleSignupPassword"></i>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="input-wrapper">
-                            <i class="fas fa-lock input-icon"></i>
-                            <input type="password" id="signupConfirm" placeholder="Confirm Password" required>
-                            <i class="fas fa-eye toggle-password" id="toggleSignupConfirm"></i>
-                        </div>
-                        <small class="error-message hidden">Passwords don't match!</small>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Sign Up</button>
-                </form>
+            <button type="submit" class="btn btn-primary" style="width: 100%; padding: 13px; margin-top: 8px;">
+                <i class="fas fa-arrow-right-to-bracket"></i> Authenticate & Enter Console
+            </button>
+        </form>
+
+        <!-- SIGN UP FORM -->
+        <form id="standalone-signup-form" style="display: none;">
+            <div class="glass-input-group">
+                <label for="signup-org">Organization / Fleet Name</label>
+                <div class="glass-input-wrap">
+                    <i class="fas fa-building"></i>
+                    <input type="text" id="signup-org" placeholder="e.g. Apex Global Technologies" required>
+                </div>
             </div>
+
+            <div class="glass-input-group">
+                <label for="signup-email">Administrator Email</label>
+                <div class="glass-input-wrap">
+                    <i class="fas fa-envelope"></i>
+                    <input type="email" id="signup-email" placeholder="admin@apex.com" required>
+                </div>
+            </div>
+
+            <div class="glass-input-group">
+                <label for="signup-password">Create Password</label>
+                <div class="glass-input-wrap">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" id="signup-password" placeholder="••••••••••••" required>
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary" style="width: 100%; padding: 13px; margin-top: 8px;">
+                <i class="fas fa-bolt"></i> Initialize Corporate Node
+            </button>
+        </form>
+
+        <!-- 1-CLICK DEMO LOGIN BOX -->
+        <div class="demo-box-card">
+            <div style="font-size: 0.78rem; font-weight: 700; text-transform: uppercase; color: var(--color-gold); margin-bottom: 8px;">
+                <i class="fas fa-sparkles"></i> 1-Click Demo Profile
+            </div>
+            <p style="font-size: 0.82rem; color: var(--text-secondary); margin-bottom: 12px;">
+                Evaluating the platform? Use the pre-authenticated executive test credentials:
+            </p>
+            <button id="auth-quick-demo-btn" class="btn btn-forest" style="width: 100%; justify-content: space-between; padding: 10px 16px; font-size: 0.85rem;">
+                <span><i class="fas fa-shield-halved" style="color: var(--color-gold);"></i> <strong>Acme Global Tech</strong> (demo@ecure.earth)</span>
+                <span style="color: var(--color-gold); font-size: 0.78rem;">Instant Sign In &rarr;</span>
+            </button>
         </div>
     </div>
 
-    <!-- Footer -->
-    <footer class="new-footer">
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-section">
-                    <h3>E-Cure Earth</h3>
-                    <p>Committed to sustainable e-waste management since 2020.</p>
-                </div>
-                <div class="footer-section">
-                    <h3>Quick Links</h3>
-                    <ul>
-                        <li><a href="index.html#about">About Us</a></li>
-                        <li><a href="marketplace.html">Marketplace</a></li>
-                        <li><a href="collectors.html">Collectors</a></li>
-                        <li><a href="impacts.html">Impacts</a></li>
-                        <li><a href="#">Contact Us</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h3>Follow Us</h3>
-                    <div class="social-links">
-                        <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                        <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
-                        <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>E-Cure Earth © 2025 | Sustainable E-Waste Solutions</p>
-            </div>
-        </div>
-    </footer>
-
     <script>
-        // Toggle between Sign In and Sign Up forms
-        const signinForm = document.getElementById('signin-form');
-        const signupForm = document.getElementById('signup-form');
-        const showSigninBtn = document.getElementById('showSigninBtn');
-        const showSignupBtn = document.getElementById('showSignupBtn');
-
-        showSigninBtn.addEventListener('click', () => {
-            signinForm.style.display = 'block';
-            signupForm.style.display = 'none';
-            showSigninBtn.classList.add('active');
-            showSignupBtn.classList.remove('active');
-        });
-
-        showSignupBtn.addEventListener('click', () => {
-            signupForm.style.display = 'block';
-            signinForm.style.display = 'none';
-            showSignupBtn.classList.add('active');
-            showSigninBtn.classList.remove('active');
-        });
-
-        // Show/Hide Password
-        function togglePasswordVisibility(inputId, toggleId) {
-            const passwordInput = document.getElementById(inputId);
-            const toggleIcon = document.getElementById(toggleId);
-            toggleIcon.addEventListener('click', () => {
-                const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
-                passwordInput.setAttribute('type', type);
-                toggleIcon.classList.toggle('fa-eye');
-                toggleIcon.classList.toggle('fa-eye-slash');
-            });
+        function showToast(message, type = 'success') {
+            const container = document.getElementById('toast-container');
+            if (!container) return;
+            const toast = document.createElement('div');
+            toast.className = `toast toast-${type}`;
+            toast.innerHTML = `<i class="fas fa-circle-check"></i> <span>${message}</span>`;
+            container.appendChild(toast);
+            setTimeout(() => toast.remove(), 3500);
         }
 
-        togglePasswordVisibility('loginPassword', 'toggleLoginPassword');
-        togglePasswordVisibility('signupPassword', 'toggleSignupPassword');
-        togglePasswordVisibility('signupConfirm', 'toggleSignupConfirm');
+        const tabSignIn = document.getElementById('btn-tab-signin');
+        const tabSignUp = document.getElementById('btn-tab-signup');
+        const formSignIn = document.getElementById('standalone-login-form');
+        const formSignUp = document.getElementById('standalone-signup-form');
+        const quickDemoBtn = document.getElementById('auth-quick-demo-btn');
 
-        // Form Submission (basic validation)
-        document.getElementById('signupForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const password = document.getElementById('signupPassword').value;
-            const confirmPassword = document.getElementById('signupConfirm').value;
-            const errorMessage = document.querySelector('.error-message');
-            if (password !== confirmPassword) {
-                errorMessage.classList.remove('hidden');
-            } else {
-                errorMessage.classList.add('hidden');
-                alert('Account created successfully!');
-                this.reset();
-                showSigninBtn.click();
-            }
+        tabSignIn.addEventListener('click', () => {
+            tabSignIn.classList.add('active');
+            tabSignUp.classList.remove('active');
+            formSignIn.style.display = 'block';
+            formSignUp.style.display = 'none';
         });
 
-        document.getElementById('loginForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Logged in successfully!');
-            window.location.href = 'dashboard.html';
+        tabSignUp.addEventListener('click', () => {
+            tabSignUp.classList.add('active');
+            tabSignIn.classList.remove('active');
+            formSignIn.style.display = 'none';
+            formSignUp.style.display = 'block';
         });
+
+        function performLogin(name, email) {
+            const userSession = {
+                name: name,
+                email: email,
+                role: 'Sustainability Director',
+                loggedIn: true
+            };
+            localStorage.setItem('userSession', JSON.stringify(userSession));
+            showToast(`Authenticated as ${name}! Redirecting to Dashboard...`);
+            setTimeout(() => {
+                window.location.href = 'dashboard.html';
+            }, 800);
+        }
+
+        formSignIn.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const email = document.getElementById('auth-email').value;
+            const orgName = email.split('@')[0].toUpperCase() + ' Corp';
+            performLogin(orgName, email);
+        });
+
+        formSignUp.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const org = document.getElementById('signup-org').value;
+            const email = document.getElementById('signup-email').value;
+            performLogin(org, email);
+        });
+
+        quickDemoBtn.addEventListener('click', () => {
+            document.getElementById('auth-email').value = 'demo@ecure.earth';
+            document.getElementById('auth-password').value = 'demo123';
+            performLogin('Acme Global Technologies', 'demo@ecure.earth');
+        });
+
+        // Check URL parameter ?signup=true
+        if (new URLSearchParams(window.location.search).get('signup') === 'true') {
+            tabSignUp.click();
+        }
     </script>
 </body>
 </html>
